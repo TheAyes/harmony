@@ -1,0 +1,18 @@
+.avatar {
+	position: relative;
+	width: 2em;
+	height: auto;
+	border-radius: 100%;
+	background: #220088;
+
+	aspect-ratio: 1/1;
+
+	.status {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		width: 1em;
+		aspect-ratio: inherit;
+	}
+}
+
