@@ -1,7 +1,7 @@
 import { component$, createContextId, Slot, useContextProvider, useStore } from "@builder.io/qwik";
 
 const initialState = {
-	theme: "dark",
+	theme: "light",
 	possibleThemes: [] as string[]
 };
 

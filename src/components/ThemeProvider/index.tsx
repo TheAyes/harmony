@@ -1,5 +1,5 @@
 import { component$, Slot, useContext, useTask$ } from "@builder.io/qwik";
-import { storeContext } from "~/components/store";
+import { storeContext } from "../Store";
 
 export const ThemeProvider = component$(() => {
 	const userData = useContext(storeContext);
@@ -7,15 +7,22 @@ export const ThemeProvider = component$(() => {
 	useTask$(async ({ track }) => {
 		const newData = track(userData);
 
-		const availableThemes = import.meta.glob("../../themes/*/index.scss");
+		import(/* @vite-ignore */ `../../themes/${newData.theme}/index.scss`);
+	});
+
+	useTask$(() => {
+		const availableThemes = import.meta.glob("../../themes/*/index.scss", { query: "?inline" });
+		console.log(availableThemes);
+
 		for (const theme in availableThemes) {
 			const pattern = /themes\/(\w+)/;
 
 			const trimmedTheme = pattern.exec(theme)?.[1] ?? "dark";
-			console.log(trimmedTheme);
+
+			userData.possibleThemes.push(trimmedTheme);
 		}
 
-		import(/* @vite-ignore */ `../../themes/${newData.theme}/index.scss`);
+		console.log(userData.possibleThemes);
 	});
 
 	return (

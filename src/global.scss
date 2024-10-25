@@ -1,3 +1,7 @@
+@forward "./variables";
+
+@use "variables" as *;
+
 *, *::before, *::after {
 	box-sizing: border-box;
 	min-width: 0;
@@ -5,13 +9,16 @@
 	padding: 0;
 }
 
-html {
+:root {
 	font-size: 62.5%;
+	background-color: $bg-default;
 }
 
 body {
 	font-size: 1.6rem;
 	line-height: 1.5;
+	color: $text-default;
+
 	-webkit-font-smoothing: antialiased;
 }
 

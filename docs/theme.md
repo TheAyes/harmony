@@ -14,7 +14,7 @@
 - Paper
 	- For slightly elevated elements like a navigation bar
 - Elevated
-	- For highly elevated elements like toasts, modals and popups
+	- For highly elevated elements like toasts, modals, and popups
 
 ### Text
 
@@ -45,3 +45,22 @@
 ### Separator
 
 - Divider
+
+## Border Radius
+
+- 4
+- 8
+- 12
+- 16
+- 32
+- Full
+
+## Gaps
+
+- 2
+- 4
+- 8
+- 12
+- 16
+- 24
+- 32
